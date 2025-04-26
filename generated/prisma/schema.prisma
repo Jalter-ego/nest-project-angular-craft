@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @default(cuid())
+  email    String  @unique
+  name     String?
+  password String?
+}
+
+model Figma {
+  id         String      @id @default(cuid())
+  hostEmail  String
+  whitelist  String[] // array de emails
+  rectangles Rectangle[]
+  circles    Circle[]
+  texts      Text[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  nameFigma  String?
+  image      String?
+}
+
+model Rectangle {
+  id           String  @id @default(cuid())
+  x            Int
+  y            Int
+  width        Int
+  height       Int
+  fill         String
+  stroke       String?
+  strokeWidth  Int?
+  cornerRadius Int?
+  figmaId      String
+  figma        Figma   @relation(fields: [figmaId], references: [id], onDelete: Cascade)
+}
+
+model Circle {
+  id      String @id @default(cuid())
+  x       Int
+  y       Int
+  radius  Int
+  fill    String
+  figmaId String
+  figma   Figma  @relation(fields: [figmaId], references: [id], onDelete: Cascade)
+}
+
+model Text {
+  id         String  @id @default(cuid())
+  x          Int
+  y          Int
+  fill       String
+  text       String
+  fontSize   Int
+  fontFamily String?
+  figmaId    String
+  figma      Figma   @relation(fields: [figmaId], references: [id], onDelete: Cascade)
+}
