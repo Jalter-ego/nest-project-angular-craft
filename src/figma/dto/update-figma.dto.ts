@@ -1,6 +1,6 @@
-import { CreateRectangleDto } from '../rectangle/dto/create-rectangle.dto';
+import { CreateRectangleDto } from './create-rectangle.dto';
 import { CreateCircleDto } from './create-circle.dto';
-import { CreateTextDto } from '../text/dto/create-text.dto';
+import { CreateTextDto } from './create-text.dto';
 
 export class UpdateFigmaDto {
   rectangles?: CreateRectangleDto[];

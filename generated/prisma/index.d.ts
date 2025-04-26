@@ -3430,6 +3430,7 @@ export namespace Prisma {
     height: number | null
     strokeWidth: number | null
     cornerRadius: number | null
+    opacity: number | null
   }
 
   export type RectangleSumAggregateOutputType = {
@@ -3439,6 +3440,7 @@ export namespace Prisma {
     height: number | null
     strokeWidth: number | null
     cornerRadius: number | null
+    opacity: number | null
   }
 
   export type RectangleMinAggregateOutputType = {
@@ -3451,6 +3453,7 @@ export namespace Prisma {
     stroke: string | null
     strokeWidth: number | null
     cornerRadius: number | null
+    opacity: number | null
     figmaId: string | null
   }
 
@@ -3464,6 +3467,7 @@ export namespace Prisma {
     stroke: string | null
     strokeWidth: number | null
     cornerRadius: number | null
+    opacity: number | null
     figmaId: string | null
   }
 
@@ -3477,6 +3481,7 @@ export namespace Prisma {
     stroke: number
     strokeWidth: number
     cornerRadius: number
+    opacity: number
     figmaId: number
     _all: number
   }
@@ -3489,6 +3494,7 @@ export namespace Prisma {
     height?: true
     strokeWidth?: true
     cornerRadius?: true
+    opacity?: true
   }
 
   export type RectangleSumAggregateInputType = {
@@ -3498,6 +3504,7 @@ export namespace Prisma {
     height?: true
     strokeWidth?: true
     cornerRadius?: true
+    opacity?: true
   }
 
   export type RectangleMinAggregateInputType = {
@@ -3510,6 +3517,7 @@ export namespace Prisma {
     stroke?: true
     strokeWidth?: true
     cornerRadius?: true
+    opacity?: true
     figmaId?: true
   }
 
@@ -3523,6 +3531,7 @@ export namespace Prisma {
     stroke?: true
     strokeWidth?: true
     cornerRadius?: true
+    opacity?: true
     figmaId?: true
   }
 
@@ -3536,6 +3545,7 @@ export namespace Prisma {
     stroke?: true
     strokeWidth?: true
     cornerRadius?: true
+    opacity?: true
     figmaId?: true
     _all?: true
   }
@@ -3636,6 +3646,7 @@ export namespace Prisma {
     stroke: string | null
     strokeWidth: number | null
     cornerRadius: number | null
+    opacity: number | null
     figmaId: string
     _count: RectangleCountAggregateOutputType | null
     _avg: RectangleAvgAggregateOutputType | null
@@ -3668,6 +3679,7 @@ export namespace Prisma {
     stroke?: boolean
     strokeWidth?: boolean
     cornerRadius?: boolean
+    opacity?: boolean
     figmaId?: boolean
     figma?: boolean | FigmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rectangle"]>
@@ -3682,6 +3694,7 @@ export namespace Prisma {
     stroke?: boolean
     strokeWidth?: boolean
     cornerRadius?: boolean
+    opacity?: boolean
     figmaId?: boolean
     figma?: boolean | FigmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rectangle"]>
@@ -3696,6 +3709,7 @@ export namespace Prisma {
     stroke?: boolean
     strokeWidth?: boolean
     cornerRadius?: boolean
+    opacity?: boolean
     figmaId?: boolean
     figma?: boolean | FigmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rectangle"]>
@@ -3710,10 +3724,11 @@ export namespace Prisma {
     stroke?: boolean
     strokeWidth?: boolean
     cornerRadius?: boolean
+    opacity?: boolean
     figmaId?: boolean
   }
 
-  export type RectangleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "x" | "y" | "width" | "height" | "fill" | "stroke" | "strokeWidth" | "cornerRadius" | "figmaId", ExtArgs["result"]["rectangle"]>
+  export type RectangleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "x" | "y" | "width" | "height" | "fill" | "stroke" | "strokeWidth" | "cornerRadius" | "opacity" | "figmaId", ExtArgs["result"]["rectangle"]>
   export type RectangleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     figma?: boolean | FigmaDefaultArgs<ExtArgs>
   }
@@ -3739,6 +3754,7 @@ export namespace Prisma {
       stroke: string | null
       strokeWidth: number | null
       cornerRadius: number | null
+      opacity: number | null
       figmaId: string
     }, ExtArgs["result"]["rectangle"]>
     composites: {}
@@ -4173,6 +4189,7 @@ export namespace Prisma {
     readonly stroke: FieldRef<"Rectangle", 'String'>
     readonly strokeWidth: FieldRef<"Rectangle", 'Int'>
     readonly cornerRadius: FieldRef<"Rectangle", 'Int'>
+    readonly opacity: FieldRef<"Rectangle", 'Int'>
     readonly figmaId: FieldRef<"Rectangle", 'String'>
   }
     
@@ -6887,6 +6904,7 @@ export namespace Prisma {
     stroke: 'stroke',
     strokeWidth: 'strokeWidth',
     cornerRadius: 'cornerRadius',
+    opacity: 'opacity',
     figmaId: 'figmaId'
   };
 
@@ -7138,6 +7156,7 @@ export namespace Prisma {
     stroke?: StringNullableFilter<"Rectangle"> | string | null
     strokeWidth?: IntNullableFilter<"Rectangle"> | number | null
     cornerRadius?: IntNullableFilter<"Rectangle"> | number | null
+    opacity?: IntNullableFilter<"Rectangle"> | number | null
     figmaId?: StringFilter<"Rectangle"> | string
     figma?: XOR<FigmaScalarRelationFilter, FigmaWhereInput>
   }
@@ -7152,6 +7171,7 @@ export namespace Prisma {
     stroke?: SortOrderInput | SortOrder
     strokeWidth?: SortOrderInput | SortOrder
     cornerRadius?: SortOrderInput | SortOrder
+    opacity?: SortOrderInput | SortOrder
     figmaId?: SortOrder
     figma?: FigmaOrderByWithRelationInput
   }
@@ -7169,6 +7189,7 @@ export namespace Prisma {
     stroke?: StringNullableFilter<"Rectangle"> | string | null
     strokeWidth?: IntNullableFilter<"Rectangle"> | number | null
     cornerRadius?: IntNullableFilter<"Rectangle"> | number | null
+    opacity?: IntNullableFilter<"Rectangle"> | number | null
     figmaId?: StringFilter<"Rectangle"> | string
     figma?: XOR<FigmaScalarRelationFilter, FigmaWhereInput>
   }, "id">
@@ -7183,6 +7204,7 @@ export namespace Prisma {
     stroke?: SortOrderInput | SortOrder
     strokeWidth?: SortOrderInput | SortOrder
     cornerRadius?: SortOrderInput | SortOrder
+    opacity?: SortOrderInput | SortOrder
     figmaId?: SortOrder
     _count?: RectangleCountOrderByAggregateInput
     _avg?: RectangleAvgOrderByAggregateInput
@@ -7204,6 +7226,7 @@ export namespace Prisma {
     stroke?: StringNullableWithAggregatesFilter<"Rectangle"> | string | null
     strokeWidth?: IntNullableWithAggregatesFilter<"Rectangle"> | number | null
     cornerRadius?: IntNullableWithAggregatesFilter<"Rectangle"> | number | null
+    opacity?: IntNullableWithAggregatesFilter<"Rectangle"> | number | null
     figmaId?: StringWithAggregatesFilter<"Rectangle"> | string
   }
 
@@ -7482,6 +7505,7 @@ export namespace Prisma {
     stroke?: string | null
     strokeWidth?: number | null
     cornerRadius?: number | null
+    opacity?: number | null
     figma: FigmaCreateNestedOneWithoutRectanglesInput
   }
 
@@ -7495,6 +7519,7 @@ export namespace Prisma {
     stroke?: string | null
     strokeWidth?: number | null
     cornerRadius?: number | null
+    opacity?: number | null
     figmaId: string
   }
 
@@ -7508,6 +7533,7 @@ export namespace Prisma {
     stroke?: NullableStringFieldUpdateOperationsInput | string | null
     strokeWidth?: NullableIntFieldUpdateOperationsInput | number | null
     cornerRadius?: NullableIntFieldUpdateOperationsInput | number | null
+    opacity?: NullableIntFieldUpdateOperationsInput | number | null
     figma?: FigmaUpdateOneRequiredWithoutRectanglesNestedInput
   }
 
@@ -7521,6 +7547,7 @@ export namespace Prisma {
     stroke?: NullableStringFieldUpdateOperationsInput | string | null
     strokeWidth?: NullableIntFieldUpdateOperationsInput | number | null
     cornerRadius?: NullableIntFieldUpdateOperationsInput | number | null
+    opacity?: NullableIntFieldUpdateOperationsInput | number | null
     figmaId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -7534,6 +7561,7 @@ export namespace Prisma {
     stroke?: string | null
     strokeWidth?: number | null
     cornerRadius?: number | null
+    opacity?: number | null
     figmaId: string
   }
 
@@ -7547,6 +7575,7 @@ export namespace Prisma {
     stroke?: NullableStringFieldUpdateOperationsInput | string | null
     strokeWidth?: NullableIntFieldUpdateOperationsInput | number | null
     cornerRadius?: NullableIntFieldUpdateOperationsInput | number | null
+    opacity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type RectangleUncheckedUpdateManyInput = {
@@ -7559,6 +7588,7 @@ export namespace Prisma {
     stroke?: NullableStringFieldUpdateOperationsInput | string | null
     strokeWidth?: NullableIntFieldUpdateOperationsInput | number | null
     cornerRadius?: NullableIntFieldUpdateOperationsInput | number | null
+    opacity?: NullableIntFieldUpdateOperationsInput | number | null
     figmaId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -7920,6 +7950,7 @@ export namespace Prisma {
     stroke?: SortOrder
     strokeWidth?: SortOrder
     cornerRadius?: SortOrder
+    opacity?: SortOrder
     figmaId?: SortOrder
   }
 
@@ -7930,6 +7961,7 @@ export namespace Prisma {
     height?: SortOrder
     strokeWidth?: SortOrder
     cornerRadius?: SortOrder
+    opacity?: SortOrder
   }
 
   export type RectangleMaxOrderByAggregateInput = {
@@ -7942,6 +7974,7 @@ export namespace Prisma {
     stroke?: SortOrder
     strokeWidth?: SortOrder
     cornerRadius?: SortOrder
+    opacity?: SortOrder
     figmaId?: SortOrder
   }
 
@@ -7955,6 +7988,7 @@ export namespace Prisma {
     stroke?: SortOrder
     strokeWidth?: SortOrder
     cornerRadius?: SortOrder
+    opacity?: SortOrder
     figmaId?: SortOrder
   }
 
@@ -7965,6 +7999,7 @@ export namespace Prisma {
     height?: SortOrder
     strokeWidth?: SortOrder
     cornerRadius?: SortOrder
+    opacity?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -8461,6 +8496,7 @@ export namespace Prisma {
     stroke?: string | null
     strokeWidth?: number | null
     cornerRadius?: number | null
+    opacity?: number | null
   }
 
   export type RectangleUncheckedCreateWithoutFigmaInput = {
@@ -8473,6 +8509,7 @@ export namespace Prisma {
     stroke?: string | null
     strokeWidth?: number | null
     cornerRadius?: number | null
+    opacity?: number | null
   }
 
   export type RectangleCreateOrConnectWithoutFigmaInput = {
@@ -8570,6 +8607,7 @@ export namespace Prisma {
     stroke?: StringNullableFilter<"Rectangle"> | string | null
     strokeWidth?: IntNullableFilter<"Rectangle"> | number | null
     cornerRadius?: IntNullableFilter<"Rectangle"> | number | null
+    opacity?: IntNullableFilter<"Rectangle"> | number | null
     figmaId?: StringFilter<"Rectangle"> | string
   }
 
@@ -8833,6 +8871,7 @@ export namespace Prisma {
     stroke?: string | null
     strokeWidth?: number | null
     cornerRadius?: number | null
+    opacity?: number | null
   }
 
   export type CircleCreateManyFigmaInput = {
@@ -8863,6 +8902,7 @@ export namespace Prisma {
     stroke?: NullableStringFieldUpdateOperationsInput | string | null
     strokeWidth?: NullableIntFieldUpdateOperationsInput | number | null
     cornerRadius?: NullableIntFieldUpdateOperationsInput | number | null
+    opacity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type RectangleUncheckedUpdateWithoutFigmaInput = {
@@ -8875,6 +8915,7 @@ export namespace Prisma {
     stroke?: NullableStringFieldUpdateOperationsInput | string | null
     strokeWidth?: NullableIntFieldUpdateOperationsInput | number | null
     cornerRadius?: NullableIntFieldUpdateOperationsInput | number | null
+    opacity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type RectangleUncheckedUpdateManyWithoutFigmaInput = {
@@ -8887,6 +8928,7 @@ export namespace Prisma {
     stroke?: NullableStringFieldUpdateOperationsInput | string | null
     strokeWidth?: NullableIntFieldUpdateOperationsInput | number | null
     cornerRadius?: NullableIntFieldUpdateOperationsInput | number | null
+    opacity?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type CircleUpdateWithoutFigmaInput = {

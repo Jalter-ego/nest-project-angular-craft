@@ -24,7 +24,7 @@ model User {
 model Figma {
   id         String      @id @default(cuid())
   hostEmail  String
-  whitelist  String[] // array de emails
+  whitelist  String[] 
   rectangles Rectangle[]
   circles    Circle[]
   texts      Text[]
@@ -44,6 +44,7 @@ model Rectangle {
   stroke       String?
   strokeWidth  Int?
   cornerRadius Int?
+  opacity      Int?
   figmaId      String
   figma        Figma   @relation(fields: [figmaId], references: [id], onDelete: Cascade)
 }

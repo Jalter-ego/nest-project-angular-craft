@@ -144,6 +144,7 @@ exports.Prisma.RectangleScalarFieldEnum = {
   stroke: 'stroke',
   strokeWidth: 'strokeWidth',
   cornerRadius: 'cornerRadius',
+  opacity: 'opacity',
   figmaId: 'figmaId'
 };
 
