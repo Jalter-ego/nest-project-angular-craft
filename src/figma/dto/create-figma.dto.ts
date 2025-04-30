@@ -6,8 +6,9 @@ import { CreateTextDto } from './create-text.dto';
 
 export class CreateFigmaDto {
     @IsEmail()
-    hostEmail: string; // Cambiar de host_email a hostEmail
+    hostEmail: string;
     whitelist: string[];
+    nameFigma: string
     rectangles: CreateRectangleDto[];
     circles: CreateCircleDto[];
     texts: CreateTextDto[];

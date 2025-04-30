@@ -11,6 +11,7 @@ export class FigmaService {
       data: {
         hostEmail: dto.hostEmail,
         whitelist: dto.whitelist || [],
+        nameFigma: dto.nameFigma
       },
       include: {
         rectangles: true,
