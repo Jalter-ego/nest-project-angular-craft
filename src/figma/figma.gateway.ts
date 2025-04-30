@@ -15,7 +15,6 @@ import { Server, Socket } from 'socket.io';
 export class FigmaGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server: Server;
-
   // Guardar estado del canvas por sala
   private canvasStates: Record<string, any> = {};
 
