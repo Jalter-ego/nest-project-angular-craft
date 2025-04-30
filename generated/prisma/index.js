@@ -187,6 +187,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -204,16 +208,17 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:86EightySix@localhost:5432/angularcraft_local"
+        "value": null
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id       String  @id @default(cuid())\n  email    String  @unique\n  name     String?\n  password String?\n  credits  Int     @default(330)\n}\n\nmodel Figma {\n  id         String      @id @default(cuid())\n  hostEmail  String\n  whitelist  String[]\n  rectangles Rectangle[]\n  circles    Circle[]\n  texts      Text[]\n  createdAt  DateTime    @default(now())\n  updatedAt  DateTime    @updatedAt\n  nameFigma  String?\n  image      String?\n}\n\nmodel Rectangle {\n  id           String  @id @default(cuid())\n  x            Int\n  y            Int\n  width        Int\n  height       Int\n  fill         String\n  stroke       String?\n  strokeWidth  Int?\n  cornerRadius Int?\n  opacity      Int?\n  figmaId      String\n  figma        Figma   @relation(fields: [figmaId], references: [id], onDelete: Cascade)\n}\n\nmodel Circle {\n  id      String @id @default(cuid())\n  x       Int\n  y       Int\n  radius  Int\n  fill    String\n  figmaId String\n  figma   Figma  @relation(fields: [figmaId], references: [id], onDelete: Cascade)\n}\n\nmodel Text {\n  id         String  @id @default(cuid())\n  x          Int\n  y          Int\n  fill       String\n  text       String\n  fontSize   Int\n  fontFamily String?\n  figmaId    String\n  figma      Figma   @relation(fields: [figmaId], references: [id], onDelete: Cascade)\n}\n",
-  "inlineSchemaHash": "758c212501ed2d0c04b2521c881b2a1df67d700691383bf46f626bc5063fc392",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id       String  @id @default(cuid())\n  email    String  @unique\n  name     String?\n  password String?\n  credits  Int     @default(330)\n}\n\nmodel Figma {\n  id         String      @id @default(cuid())\n  hostEmail  String\n  whitelist  String[]\n  rectangles Rectangle[]\n  circles    Circle[]\n  texts      Text[]\n  createdAt  DateTime    @default(now())\n  updatedAt  DateTime    @updatedAt\n  nameFigma  String?\n  image      String?\n}\n\nmodel Rectangle {\n  id           String  @id @default(cuid())\n  x            Int\n  y            Int\n  width        Int\n  height       Int\n  fill         String\n  stroke       String?\n  strokeWidth  Int?\n  cornerRadius Int?\n  opacity      Int?\n  figmaId      String\n  figma        Figma   @relation(fields: [figmaId], references: [id], onDelete: Cascade)\n}\n\nmodel Circle {\n  id      String @id @default(cuid())\n  x       Int\n  y       Int\n  radius  Int\n  fill    String\n  figmaId String\n  figma   Figma  @relation(fields: [figmaId], references: [id], onDelete: Cascade)\n}\n\nmodel Text {\n  id         String  @id @default(cuid())\n  x          Int\n  y          Int\n  fill       String\n  text       String\n  fontSize   Int\n  fontFamily String?\n  figmaId    String\n  figma      Figma   @relation(fields: [figmaId], references: [id], onDelete: Cascade)\n}\n",
+  "inlineSchemaHash": "79724fb51665c4ba5464e0a42de395b2d4442e8f5e089724efd02ec63bb7e5e9",
   "copyEngine": true
 }
 
@@ -254,6 +259,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
+path.join(process.cwd(), "generated/prisma/libquery_engine-debian-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/prisma/schema.prisma")
