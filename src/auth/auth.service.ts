@@ -29,14 +29,7 @@ export class AuthService {
 
     console.log(payload)
 
-    const user = {
-      googleId: payload.sub,
-      email: payload.email,
-      name: payload.name,
-      given_name: payload.given_name,
-      picture: payload.picture,
-    };
-
+    
     const emailUser = payload.email || ''
     const userFind = await this.usersService.findOne(emailUser)
     if(!userFind){
@@ -47,6 +40,14 @@ export class AuthService {
       })
     }else console.log("si existe el usuario");
     
+    const user = {
+      googleId: payload.sub,
+      email: payload.email,
+      name: payload.name,
+      given_name: payload.given_name,
+      picture: payload.picture,
+      credits: userFind?.credits
+    };
 
     const jwtToken = this.jwtService.sign(user);
 

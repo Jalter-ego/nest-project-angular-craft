@@ -12,3 +12,11 @@ export class CreateUserDto {
     @IsOptional()
     password: string
 }
+
+export class GetUserDto {
+    id: string
+    email: string
+    name: string
+    password: string
+    credits: number
+}

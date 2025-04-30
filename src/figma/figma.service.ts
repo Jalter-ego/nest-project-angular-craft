@@ -101,13 +101,17 @@ export class FigmaService {
 
   async updateImage(id: string, image: UpdateImage){
     console.log(image)
-    await this.prisma.figma.update({
+    return await this.prisma.figma.update({
       where: {id},
       data: {
         image: image.image
+      },
+      include:{
+        rectangles: true,
+        circles: true,
+        texts: true
       }
     })
-    return {msg: "imagen currently to update"}
   }
 
   async remove(idFigma: string) {

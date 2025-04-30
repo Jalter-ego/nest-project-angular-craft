@@ -19,6 +19,7 @@ model User {
   email    String  @unique
   name     String?
   password String?
+  credits  Int     @default(330)
 }
 
 model Figma {
